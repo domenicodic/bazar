@@ -14,7 +14,6 @@ class core
 		$this->cn = new cn();
 		$this->session = new session();
 		$this->utils = new utils();
-		
 	}
 	
 	function __destruct()
