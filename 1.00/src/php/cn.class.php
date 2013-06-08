@@ -33,6 +33,18 @@ class cn
 			mysql_select_db($db_name, $this->con) or die( mysql_error() );
 		}
 	}
+	
+	public function query($query)
+	{
+		$result = mysql_query($query, $this->con);
+		
+		if( !$result ) 
+		{ 
+			die( '<pre>'. $query .'</pre><br />'. mysql_error() );
+		}
+		
+		return $result;
+	}
 
 	function __destruct()
 	//--------------------------------
