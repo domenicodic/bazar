@@ -27,7 +27,7 @@
 
 
 
-$query = mysql_query("select DISTINCT tipo from prodotti");
+$query = $core->cn->query("SELECT DISTINCT tipo FROM prodotti");
 
 $conta = mysql_num_rows($query);
 
