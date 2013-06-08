@@ -3,12 +3,9 @@
 	$core = new core();
 ?>
 <html>
-
 <head>
 <link rel="stylesheet" href="src/css/stile.css" type="text/css"> 
 </head>
-
-
 <body>
     <div class="contenitore"><!-- Inizio contenitore div -->
     
