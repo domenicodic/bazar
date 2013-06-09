@@ -34,7 +34,7 @@ $conta = mysql_num_rows($query);
 echo"<ul>";
 for($i=0;$i<$conta;$i++){
 $tipo=mysql_result($query,$i,'tipo');
-echo"<li><a href=\"$tipo.php\">$tipo</a></li>";
+echo"<li><a href=\"tipi.php?tipo=".$tipo."\">$tipo</a></li>";
 
 }
 ?>
