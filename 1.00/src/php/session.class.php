@@ -1,24 +1,44 @@
 <?php
 class session
 {
-	function __construct()
+	private $core = null;
+	
+	
+	
+	function __construct($core = null)
 	{
-		if(session_id() == "")
+		$this->core = $core;
+		
+		if( session_id() == "" )
 		{
 			session_start();
 		}
 	}
-	public function set_username($username)
+	
+	
+	
+	function __destruct()
+	{
+	
+	}
+	
+	
+	
+	public function set_username($username = null)
 	{
 		$_SESSION['username'] = $username;		
 	}
+	
+	
 	
 	public function get_username()
 	{
 		return (isset($_SESSION['username'])) ? $_SESSION['username'] : null;	
 	}
 	
-	public function add_to_cart($id)
+	
+	
+	public function add_to_cart( $id )
 	{
 		if( isset($_SESSION['cart'][$id]) )
 		{
@@ -31,7 +51,8 @@ class session
 	}
 	
 	
-	public function dec_to_cart($id)
+	
+	public function dec_to_cart( $id )
 	{
 		if ( isset($_SESSION['cart'][$id]) )
 		{
@@ -47,18 +68,12 @@ class session
 	}
 	
 	
-	public function remove_to_cart($id)
+	
+	public function remove_to_cart( $id )
 	{
-		if (isset($_SESSION['cart'][$id]))
+		if ( isset($_SESSION['cart'][$id]) )
 		{
 			unset($_SESSION['cart'][$id]);
 		}
-	}
-	
-	
-	
-	function __destruct()
-	{
-		
 	}
 }

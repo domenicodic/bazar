@@ -1,32 +1,46 @@
 <?php
 class utils
 {
+	private $core = null;
 	
-	function __construct()
+	
+	
+	function __construct($core = null)
 	{
-			
+		$this->core = $core;
 	}
 
+	
+	
 	function __destruct()
 	{
 		
 	}
 	
+	
+	
 	public function print_lista_tipi()
 	{
-		$result = mysql_query("select DISTINCT tipo from prodotti");
+		$out    = '';
+		$result = $this->core->cn->query("select DISTINCT tipo from prodotti");
 		
-		if(mysql_num_rows($result) > 0)
+		$out .= '<!-- print_lista_tipi -->';
+		
+		if( mysql_num_rows($result) > 0 )
 		{
-			echo "<ul>";
+			$out .= '<ul>';
 			
 			while( $row = mysql_fetch_array($result))
 			{
-				echo "<li><a href=\"tipi.php?tipo=".$row['tipo']."\">".$row['tipo']."</a></li>";	
+				$out .= '<li><a href="tipi.php?tipo='.$row['tipo'].'">'.$row['tipo'].'</a></li>';	
 			}
 			
-			echo "</ul>";
+			$out .= '</ul>';
 		}
+		
+		$out .= '<!-- /print_lista_tipi -->';
+		
+		echo $out;
 	}
 	
 	
