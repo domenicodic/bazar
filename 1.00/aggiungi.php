@@ -41,18 +41,18 @@ margin-bottom:auto;
 */
 //print_r($_FILES);
 
-@$tipo=$_POST['tipo'];
-@$marca=$_POST['marca'];
-@$modello=$_POST['modello'];
-@$prezzo=$_POST['prezzo'];
-@$disponibilita=$_POST['disponibilita'];
-@$descrizione=$_POST['descrizione'];
-@$foto=$_POST['foto'];
+$tipo=$_POST['tipo'];
+$marca=$_POST['marca'];
+$modello=$_POST['modello'];
+$prezzo=$_POST['prezzo'];
+$disponibilita=$_POST['disponibilita'];
+$descrizione=$_POST['descrizione'];
+$foto=$_POST['foto'];
 
 move_uploaded_file($_FILES['foto']['tmp_name'], dirname(__FILE__) . '\\upload\\' . $_FILES['foto']['name']);
 
 if(isset($tipo)&& isset($disponibilita)){
-@$query="insert into prodotti values('','$tipo','$marca','$modello','$prezzo','$disponibilita','$descrizione','$foto','/upload/". $_FILES['foto']['name']."')";
+$query="insert into prodotti values('','$tipo','$marca','$modello','$prezzo','$disponibilita','$descrizione','$foto','/upload/". $_FILES['foto']['name']."')";
 mysql_query($query);
 echo"Prodotto aggiunto con successo. Puoi inserirne un'altro cliccando <a href=\"aggiungi.php\">qui</a> ";
 }
