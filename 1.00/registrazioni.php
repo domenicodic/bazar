@@ -46,7 +46,7 @@
 @$psw=$_POST['psw'];
 if(isset($username) && $email!==""){
 	
-	@$query="insert into utenti values('$nome','$cognome','$indirizzo','$email','$username','$psw','$cf')";
+	$query="insert into utenti values('$nome','$cognome','$indirizzo','$email','$username','$psw','$cf')";
 mysql_query($query);
 echo"Grazie per aver inserito i tuoi dati. Ora puoi accedere all'area privata cliccando <a href=\"index.php\"> qui</a>";
 }
